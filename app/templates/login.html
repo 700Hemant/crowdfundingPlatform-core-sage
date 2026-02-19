@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Smart Waste Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <main class="login-card">
+      <h2>Staff Login</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert {{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form method="POST">
+        <label>Username</label>
+        <input type="text" name="username" required />
+        <label>Password</label>
+        <input type="password" name="password" required />
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <a href="{{ url_for('index') }}">← Back</a>
+    </main>
+  </body>
+</html>

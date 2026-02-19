@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+app/smart_waste.db
+app/uploads/*
+!app/uploads/.gitkeep
+app/reports/*
+!app/reports/.gitkeep

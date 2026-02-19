@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAGE Smart Waste Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <main class="landing">
+      <h1>AI Smart Waste Management System</h1>
+      <p>
+        Satellite-assisted waste monitoring for SAGE University campus with AI detection,
+        map intelligence, and operational alerts.
+      </p>
+      <a class="btn" href="{{ url_for('login') }}">Staff Login</a>
+      <section class="credentials">
+        <h3>Demo Accounts</h3>
+        <p>Admin: <strong>admin/admin123</strong></p>
+        <p>Staff: <strong>staff/staff123</strong></p>
+      </section>
+    </main>
+  </body>
+</html>
