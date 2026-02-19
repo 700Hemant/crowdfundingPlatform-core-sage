@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Smart Waste Management</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>SAGE Campus Smart Waste Dashboard</h1>
+      <div>
+        <span class="chip">Logged in as {{ username }} ({{ role }})</span>
+        <a class="btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Satellite Image Upload</h3>
+        <p>Upload satellite/mock imagery to detect plastic, organic, metal, e-waste, and mixed waste.</p>
+        <form id="uploadForm">
+          <input id="imageInput" type="file" name="image" accept="image/*" required />
+          <button class="btn" type="submit">Run AI Detection</button>
+        </form>
+        <button id="seedDemo" class="btn-secondary">Seed Demo Data</button>
+        <div id="uploadStatus"></div>
+        <img id="overlayPreview" alt="Detection overlay" />
+      </article>
+
+      <article class="card">
+        <h3>Detection Statistics</h3>
+        <div id="statsPanel" class="stats"></div>
+      </article>
+
+      <article class="card">
+        <h3>High Priority Alerts</h3>
+        <div id="alertPanel"></div>
+      </article>
+
+      <article class="card map-card">
+        <h3>Campus Waste Map (Leaflet)</h3>
+        <div id="map"></div>
+      </article>
+
+      <article class="card">
+        <h3>Smart Suggestions</h3>
+        <div id="suggestionPanel"></div>
+      </article>
+
+      <article class="card">
+        <h3>Admin Actions & Reports</h3>
+        <p>Admins can resolve records and download period reports.</p>
+        <div class="report-actions">
+          <a class="btn" href="/api/reports/weekly">Weekly CSV</a>
+          <a class="btn" href="/api/reports/monthly">Monthly CSV</a>
+        </div>
+        <div id="detectionTable"></div>
+      </article>
+    </section>
+
+    <script>
+      const USER_ROLE = "{{ role }}";
+    </script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  </body>
+</html>

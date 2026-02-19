@@ -1,0 +1,89 @@
+:root {
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #1d4ed8;
+  --danger: #b91c1c;
+  --success: #166534;
+}
+
+* { box-sizing: border-box; font-family: Inter, Arial, sans-serif; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+
+.landing, .login-card {
+  max-width: 640px;
+  margin: 6rem auto;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #0f172a;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.map-card { grid-column: span 2; }
+#map { height: 420px; border-radius: 10px; }
+
+.btn, .btn-secondary {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn { background: var(--accent); color: white; }
+.btn-secondary { background: #e2e8f0; color: #0f172a; }
+
+input { width: 100%; margin: 0.4rem 0 0.8rem; padding: 0.55rem; }
+.alert.error { background: #fee2e2; color: var(--danger); padding: 0.5rem; border-radius: 8px; }
+
+#overlayPreview {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+  display: none;
+}
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.stat { background: #eff6ff; border-radius: 8px; padding: 0.6rem; }
+.chip { background: #334155; color: white; padding: 0.4rem 0.7rem; border-radius: 999px; margin-right: 0.5rem; }
+
+.suggestion {
+  padding: 0.6rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid;
+}
+.priority-high { border-color: #dc2626; background: #fee2e2; }
+.priority-medium { border-color: #d97706; background: #ffedd5; }
+.priority-low { border-color: #15803d; background: #dcfce7; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { border-bottom: 1px solid #e5e7eb; padding: 0.4rem; text-align: left; }
+
+@media (max-width: 900px) {
+  .map-card { grid-column: span 1; }
+}
